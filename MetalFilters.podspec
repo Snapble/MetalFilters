@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "MetalFilters"
-  spec.version      = "0.9.1"
+  spec.version      = "1.0.0"
   spec.summary      = "Instagram filters implemented in Metal "
 
   # This description is used to generate tags and improve search results.
@@ -52,10 +52,10 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "Snapble" => "email@address.com" }
-  # Or just: spec.author    = "Snapble"
-  # spec.authors            = { "Snapble" => "email@address.com" }
-  # spec.social_media_url   = "https://twitter.com/Snapble"
+  spec.author             = { "alexiscn" => "alexiscn@email.com" }
+  # Or just: spec.author    = "alexiscn"
+  # spec.authors            = { "alexiscn" => "alexiscn@email.com" }
+  # spec.social_media_url   = "https://twitter.com/alexiscn"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -80,7 +80,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "/Users/hai/workspace/Snapble/MetalFilters", :commit => "b503c750add7bedabe105d4c622f503a7457d51e" }
+  spec.source       = { :git => "git@github.com:Snapble/MetalFilters.git", :tag => s.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
