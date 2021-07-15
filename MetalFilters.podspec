@@ -80,7 +80,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/Snapble/MetalFilters.git", :commit => "4381d4afe2507c8266b3e592d5f04fcd3a8aec33" }
+  spec.source       = { :git => "/Users/hai/workspace/Snapble/MetalFilters", :commit => "b503c750add7bedabe105d4c622f503a7457d51e" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
