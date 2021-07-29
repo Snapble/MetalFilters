@@ -8,9 +8,9 @@
 import Foundation
 import MetalPetal
 
-open class MT1977Filter: MTFilter {
+public class MT1977Filter: MTFilter {
 
-   override class var name: String {
+    public override class var name: String {
         return "1977"
     }
 

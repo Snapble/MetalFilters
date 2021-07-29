@@ -17,13 +17,13 @@ public class FilterPickerCell: UICollectionViewCell {
     
     let titleLabel: UILabel
     
-    override var isSelected: Bool {
+    public override var isSelected: Bool {
         didSet {
             titleLabel.textColor = isSelected ? titleSelectedColor: titleNormalColor
         }
     }
     
-    override var isHighlighted: Bool {
+    public override var isHighlighted: Bool {
         didSet {
             if isHighlighted {
                 UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
