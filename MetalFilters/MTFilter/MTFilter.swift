@@ -9,12 +9,12 @@
 import Foundation
 import MetalPetal
 
-open class MTFilter: NSObject, MTIUnaryFilter {
+public class MTFilter: NSObject, MTIUnaryFilter {
     
     required public override init() { }
     
     // MARK: - Should overrided by subclasses
-    class var name: String { return "" }
+    public class var name: String { return "" }
     
     /// border image Name
     var borderName: String { return "" }

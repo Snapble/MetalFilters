@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterPickerCell: UICollectionViewCell {
+public class FilterPickerCell: UICollectionViewCell {
     
     let titleNormalColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
     let titleSelectedColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)

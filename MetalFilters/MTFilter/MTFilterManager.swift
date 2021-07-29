@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 import MetalPetal
 
-class MTFilterManager {
+public class MTFilterManager {
     
-    static let shared = MTFilterManager()
+    public static let shared = MTFilterManager()
     
-    var allFilters: [MTFilter.Type] = []
+    public var allFilters: [MTFilter.Type] = []
     
     private var resourceBundle: Bundle
     
