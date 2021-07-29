@@ -11,7 +11,7 @@ import MetalPetal
 
 open class MTFilter: NSObject, MTIUnaryFilter {
     
-    required override init() { }
+    required public override init() { }
     
     // MARK: - Should overrided by subclasses
     class var name: String { return "" }
@@ -41,11 +41,11 @@ open class MTFilter: NSObject, MTIUnaryFilter {
 
     // MARK: - MTIUnaryFilter
     
-    var inputImage: MTIImage?
+    public var inputImage: MTIImage?
     
-    var outputPixelFormat: MTLPixelFormat = .invalid
+    public var outputPixelFormat: MTLPixelFormat = .invalid
     
-    var outputImage: MTIImage? {
+    public var outputImage: MTIImage? {
         guard let input = inputImage else {
             return inputImage
         }
