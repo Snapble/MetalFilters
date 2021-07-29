@@ -76,7 +76,7 @@ public class MTFilterManager {
         return resourceBundle.url(forResource: name, withExtension: nil)
     }
     
-    func generateThumbnailsForImage(_ image: UIImage, with type: MTFilter.Type) -> UIImage? {
+    public func generateThumbnailsForImage(_ image: UIImage, with type: MTFilter.Type) -> UIImage? {
         let inputImage = MTIImage(cgImage: image.cgImage!, options: [.SRGB: false], isOpaque: true)
         let filter = type.init()
         filter.inputImage = inputImage

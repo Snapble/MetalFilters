@@ -12,8 +12,8 @@ public class FilterPickerCell: UICollectionViewCell {
     
     let titleNormalColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
     let titleSelectedColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
-    
-    let thumbnailImageView: UIImageView
+
+    public let thumbnailImageView: UIImageView
     
     let titleLabel: UILabel
     
@@ -59,8 +59,8 @@ public class FilterPickerCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func update(_ filter: MTFilter.Type) {
+
+    public func update(_ filter: MTFilter.Type) {
         titleLabel.text = filter.name
     }
 }
