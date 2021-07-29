@@ -9,7 +9,7 @@
 import Foundation
 import MetalPetal
 
-class MTFilter: NSObject, MTIUnaryFilter {
+open class MTFilter: NSObject, MTIUnaryFilter {
     
     required override init() { }
     
