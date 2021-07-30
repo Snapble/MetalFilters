@@ -9,12 +9,12 @@
 import Foundation
 import MetalPetal
 
-class MTFilter: NSObject, MTIUnaryFilter {
+public class MTFilter: NSObject, MTIUnaryFilter {
     
-    required override init() { }
+    public required override init() { }
     
     // MARK: - Should overrided by subclasses
-    class var name: String { return "" }
+    public class var name: String { return "" }
     
     /// border image Name
     var borderName: String { return "" }
@@ -41,11 +41,11 @@ class MTFilter: NSObject, MTIUnaryFilter {
 
     // MARK: - MTIUnaryFilter
     
-    var inputImage: MTIImage?
+    public var inputImage: MTIImage?
     
-    var outputPixelFormat: MTLPixelFormat = .invalid
+    public var outputPixelFormat: MTLPixelFormat = .invalid
     
-    var outputImage: MTIImage? {
+    public var outputImage: MTIImage? {
         guard let input = inputImage else {
             return inputImage
         }

@@ -17,7 +17,7 @@ protocol FilterControlViewDelegate {
     func filterControlView(_ controlView: FilterControlView, borderSelectionChangeTo isSelected: Bool)
 }
 
-class FilterControlView: UIView {
+public class FilterControlView: UIView {
 
     var delegate: FilterControlViewDelegate?
     
@@ -99,7 +99,7 @@ class FilterControlView: UIView {
         updateSlider(value: value)
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         
         let buttonY = frame.height - cancelButton.frame.height - keyWindowSafeAreaInsets.bottom

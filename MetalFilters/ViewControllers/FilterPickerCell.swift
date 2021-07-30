@@ -8,22 +8,22 @@
 
 import UIKit
 
-class FilterPickerCell: UICollectionViewCell {
+public class FilterPickerCell: UICollectionViewCell {
     
     let titleNormalColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
     let titleSelectedColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
-    
-    let thumbnailImageView: UIImageView
+
+    public let thumbnailImageView: UIImageView
     
     let titleLabel: UILabel
-    
-    override var isSelected: Bool {
+
+    public override var isSelected: Bool {
         didSet {
             titleLabel.textColor = isSelected ? titleSelectedColor: titleNormalColor
         }
     }
-    
-    override var isHighlighted: Bool {
+
+    public override var isHighlighted: Bool {
         didSet {
             if isHighlighted {
                 UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
@@ -36,8 +36,8 @@ class FilterPickerCell: UICollectionViewCell {
             }
         }
     }
-    
-    override init(frame: CGRect) {
+
+    public override init(frame: CGRect) {
         
         thumbnailImageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 100)))
         thumbnailImageView.contentMode = .scaleAspectFill
@@ -55,12 +55,12 @@ class FilterPickerCell: UICollectionViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(thumbnailImageView)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func update(_ filter: MTFilter.Type) {
+
+    public func update(_ filter: MTFilter.Type) {
         titleLabel.text = filter.name
     }
 }
