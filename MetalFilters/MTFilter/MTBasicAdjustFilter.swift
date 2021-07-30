@@ -11,20 +11,20 @@ import MetalPetal
 
 public class MTBasicAdjustFilter: MTFilter {
     
-    var brightness: Float = 0
-    var contrast: Float = 0
-    var saturation: Float = 0
-    var temperature: Float = 0
-    var vignette: Float = 0
-    var fade: Float = 0
-    var highlights: Float = 0
-    var shadows: Float = 0
-    var sharpen: Float = 0
-    var sharpenDisabled: Bool = false
-    var tintShadowsIntensity: Float = 0.0
-    var tintHighlightsIntensity: Float = 0.0
-    var tintShadowsColor: MTTintColor = .none
-    var tintHighlightsColor: MTTintColor = .none
+    public var brightness: Float = 0
+    public var contrast: Float = 0
+    public var saturation: Float = 0
+    public var temperature: Float = 0
+    public var vignette: Float = 0
+    public var fade: Float = 0
+    public var highlights: Float = 0
+    public var shadows: Float = 0
+    public var sharpen: Float = 0
+    public var sharpenDisabled: Bool = false
+    public var tintShadowsIntensity: Float = 0.0
+    public var tintHighlightsIntensity: Float = 0.0
+    public var tintShadowsColor: MTTintColor = .none
+    public var tintHighlightsColor: MTTintColor = .none
 
     public override class var name: String {
         return "Basic Adjust"

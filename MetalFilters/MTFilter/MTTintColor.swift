@@ -9,7 +9,7 @@
 import UIKit
 import MetalPetal
 
-enum MTTintColor {
+public enum MTTintColor {
     case none
     case yellow
     case orange
@@ -19,8 +19,8 @@ enum MTTintColor {
     case blue
     case lightBlue
     case green
-    
-    var displayColor: UIColor {
+
+    public var displayColor: UIColor {
         switch self {
         case .none:
             return UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
@@ -42,8 +42,8 @@ enum MTTintColor {
             return UIColor(red: 0.180392, green: 0.780392, blue: 0.235294, alpha: 1)
         }
     }
-    
-    var displayName: String {
+
+    public var displayName: String {
         switch self {
         case .none:
             return "No Color"
@@ -65,8 +65,8 @@ enum MTTintColor {
             return "Green"
         }
     }
-    
-    var colorVector: MTIVector {
+
+    public var colorVector: MTIVector {
         switch self {
         case .none:
             return MTIVector(value: SIMD3(0.0, 0.0, 0.0))
@@ -88,8 +88,8 @@ enum MTTintColor {
             return MTIVector(value: SIMD3(0.0, 1.0, 0.0))
         }
     }
-    
-    static func colors() -> [MTTintColor] {
+
+    public static func colors() -> [MTTintColor] {
         return [.none, .yellow, .orange, .red, .pink, .purple, .blue, .lightBlue, .green]
     }
 }
