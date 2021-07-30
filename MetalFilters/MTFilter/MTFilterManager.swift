@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 import MetalPetal
 
-class MTFilterManager {
-    
-    static let shared = MTFilterManager()
-    
-    var allFilters: [MTFilter.Type] = []
+public class MTFilterManager {
+
+    public static let shared = MTFilterManager()
+
+    public var allFilters: [MTFilter.Type] = []
     
     private var resourceBundle: Bundle
     
@@ -94,15 +94,15 @@ class MTFilterManager {
 //        }
         return nil
     }
-    
-    func generate(image: MTIImage) -> UIImage? {
+
+    public func generate(image: MTIImage) -> UIImage? {
         if let cgImage = try? context?.makeCGImage(from: image) {
             return UIImage(cgImage: cgImage)
         }
         return nil
     }
-    
-    func generateCIImage(image: MTIImage) -> CIImage? {
+
+    public func generateCIImage(image: MTIImage) -> CIImage? {
         if let cgImage = try? context?.makeCIImage(from: image) {
             return cgImage
         }

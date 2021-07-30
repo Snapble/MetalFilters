@@ -9,7 +9,7 @@
 import Foundation
 import MetalPetal
 
-class MTBasicAdjustFilter: MTFilter {
+public class MTBasicAdjustFilter: MTFilter {
     
     var brightness: Float = 0
     var contrast: Float = 0
@@ -25,8 +25,8 @@ class MTBasicAdjustFilter: MTFilter {
     var tintHighlightsIntensity: Float = 0.0
     var tintShadowsColor: MTTintColor = .none
     var tintHighlightsColor: MTTintColor = .none
-    
-    override class var name: String {
+
+    public override class var name: String {
         return "Basic Adjust"
     }
     

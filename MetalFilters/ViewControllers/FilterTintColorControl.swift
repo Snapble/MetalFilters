@@ -78,7 +78,7 @@ class FilterTintColorControl: UIView, UITabBarDelegate {
         
     }
     
-    func setPosition(offScreen isOffScreen: Bool) {
+    public func setPosition(offScreen isOffScreen: Bool) {
         if isOffScreen {
             frame.origin = CGPoint(x: frame.origin.x, y: frame.origin.y + 44)
             alpha = 0

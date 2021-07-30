@@ -109,7 +109,7 @@ enum FilterToolType {
     
 }
 
-struct FilterToolItem: Equatable {
+public struct FilterToolItem: Equatable {
     
     let type: FilterToolType
     

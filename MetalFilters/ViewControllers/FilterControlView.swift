@@ -31,7 +31,7 @@ public class FilterControlView: UIView {
     
     private let filterTool: FilterToolItem
     
-    init(frame: CGRect, filterTool: FilterToolItem, value: Float = 1.0, borderSeleted: Bool = false) {
+    public init(frame: CGRect, filterTool: FilterToolItem, value: Float = 1.0, borderSeleted: Bool = false) {
         
         self.filterTool = filterTool
         
@@ -143,7 +143,7 @@ public class FilterControlView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setPosition(offScreen isOffScreen: Bool) {
+    public func setPosition(offScreen isOffScreen: Bool) {
         if isOffScreen {
             frame.origin = CGPoint(x: frame.origin.x, y: frame.origin.y + 44)
             alpha = 0
