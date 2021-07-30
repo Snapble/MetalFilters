@@ -107,19 +107,20 @@ enum FilterToolType {
     case tiltShift
     case sharpen
     
-    
 }
 
-struct FilterToolItem {
+struct FilterToolItem: Equatable {
     
     let type: FilterToolType
     
     let slider: SliderValueRange
     
+    var customTilte = ""
+    
     var title: String {
         switch type {
         case .adjustStrength:
-            return ""
+            return customTilte
         case .adjust:
             return "Adjust"
         case .brightness:
@@ -154,7 +155,7 @@ struct FilterToolItem {
         case .adjustStrength:
             return ""
         case .adjust:
-            return "icon-structure"
+            return "icon-crop"
         case .brightness:
             return "icon-brightness"
         case .contrast:

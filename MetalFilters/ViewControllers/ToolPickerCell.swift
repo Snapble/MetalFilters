@@ -48,8 +48,9 @@ class ToolPickerCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
  
-    func update(_ tool: FilterToolItem) {
-        iconView.image = UIImage(named: tool.icon)
+    func update(_ tool: FilterToolItem, applied: Bool = false) {
+        iconView.image = UIImage(named: tool.icon, in: Bundle(for: ToolPickerCell.self), compatibleWith: nil)
         titleLabel.text = tool.title
+        borderView.layer.borderColor = applied ? UIColor(red: 55.0/255.0, green: 171.0/255.0, blue: 225.0/255.0, alpha: 1.0).cgColor : UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0).cgColor
     }
 }

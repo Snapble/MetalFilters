@@ -8,22 +8,22 @@
 
 import UIKit
 
-public class FilterPickerCell: UICollectionViewCell {
+class FilterPickerCell: UICollectionViewCell {
     
     let titleNormalColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
     let titleSelectedColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
-
-    public let thumbnailImageView: UIImageView
+    
+    let thumbnailImageView: UIImageView
     
     let titleLabel: UILabel
     
-    public override var isSelected: Bool {
+    override var isSelected: Bool {
         didSet {
             titleLabel.textColor = isSelected ? titleSelectedColor: titleNormalColor
         }
     }
     
-    public override var isHighlighted: Bool {
+    override var isHighlighted: Bool {
         didSet {
             if isHighlighted {
                 UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
@@ -59,8 +59,8 @@ public class FilterPickerCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    public func update(_ filter: MTFilter.Type) {
+    
+    func update(_ filter: MTFilter.Type) {
         titleLabel.text = filter.name
     }
 }

@@ -9,8 +9,8 @@
 import UIKit
 
 protocol FilterControlViewDelegate {
-    func filterControlViewDidPressCancel()
-    func filterControlViewDidPressDone()
+    func filterControlViewDidPressCancel(filterTool: FilterToolItem)
+    func filterControlViewDidPressDone(filterTool: FilterToolItem)
     func filterControlViewDidStartDragging()
     func filterControlView(_ controlView: FilterControlView, didChangeValue value: Float, filterTool: FilterToolItem)
     func filterControlViewDidEndDragging()
@@ -31,7 +31,7 @@ class FilterControlView: UIView {
     
     private let filterTool: FilterToolItem
     
-    init(frame: CGRect, filterTool: FilterToolItem, value: Float = 1.0) {
+    init(frame: CGRect, filterTool: FilterToolItem, value: Float = 1.0, borderSeleted: Bool = false) {
         
         self.filterTool = filterTool
         
@@ -52,26 +52,20 @@ class FilterControlView: UIView {
         titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         titleLabel.textAlignment = .center
         titleLabel.textColor = textColor
+        titleLabel.text = "\(Int(value * 100))"
         
         sliderView = HorizontalSliderView(frame: CGRect(x: 30, y: frame.height/2 - 50, width: frame.width - 60, height: 70))
         
         borderButton = UIButton(type: .system)
         borderButton.frame.size = CGSize(width: 22, height: 22)
-        borderButton.setBackgroundImage(UIImage(named: "filter-border"), for: .normal)
-        borderButton.setBackgroundImage(UIImage(named: "filter-border-active"), for: .selected)
+        
+        borderButton.setBackgroundImage(UIImage(named: "filter-border", in: Bundle(for: ToolPickerCell.self), compatibleWith: nil), for: .normal)
+        borderButton.setBackgroundImage(UIImage(named: "filter-border-active", in: Bundle(for: ToolPickerCell.self), compatibleWith: nil), for: .selected)
         borderButton.tintColor = .clear
-        borderButton.isSelected = false
+        borderButton.isSelected = borderSeleted
         
         
         super.init(frame: frame)
-        
-        if filterTool.type == .color {
-            //let colorControlView = FilterTintColorControl(frame: frame)
-        } else if filterTool.type == .adjust {
-            
-        } else {
-            
-        }
         
         sliderView.valueRange = filterTool.slider
         sliderView.slider.value = value
@@ -94,6 +88,15 @@ class FilterControlView: UIView {
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
         sliderView.slider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
+        
+        if filterTool.type == .color {
+            //let colorControlView = FilterTintColorControl(frame: frame)
+        } else if filterTool.type == .adjust {
+            sliderView.isHidden = true
+        } else {
+            
+        }
+        updateSlider(value: value)
     }
     
     override func layoutSubviews() {
@@ -115,21 +118,25 @@ class FilterControlView: UIView {
     }
     
     @objc private func cancelButtonTapped() {
-        delegate?.filterControlViewDidPressCancel()
+        delegate?.filterControlViewDidPressCancel(filterTool: filterTool)
     }
     
     @objc private func doneButtonTapped() {
-        delegate?.filterControlViewDidPressDone()
+        delegate?.filterControlViewDidPressDone(filterTool: filterTool)
     }
     
     @objc private func sliderValueChanged(_ sender: UISlider) {
-        titleLabel.text = "\(Int(sender.value * 100))"
-        
+        updateSlider(value: sender.value)
+        delegate?.filterControlView(self, didChangeValue: sender.value, filterTool: filterTool)
+    }
+    
+    private func updateSlider(value: Float) {
+        titleLabel.text = "\(Int(value * 100))"
+        guard let sender = sliderView.slider else {return}
         let trackRect = sender.trackRect(forBounds: sender.bounds)
         let thumbRect = sender.thumbRect(forBounds: sender.bounds, trackRect: trackRect, value: sender.value)
         let x = thumbRect.origin.x + sender.frame.origin.x + 44
         titleLabel.center = CGPoint(x: x, y: frame.height/2 - 60)
-        delegate?.filterControlView(self, didChangeValue: sender.value, filterTool: filterTool)
     }
     
     required init?(coder aDecoder: NSCoder) {

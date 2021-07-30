@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 import MetalPetal
 
-public class MTFilterManager {
+class MTFilterManager {
     
-    public static let shared = MTFilterManager()
+    static let shared = MTFilterManager()
     
-    public var allFilters: [MTFilter.Type] = []
+    var allFilters: [MTFilter.Type] = []
     
     private var resourceBundle: Bundle
     
@@ -68,7 +68,8 @@ public class MTFilterManager {
         
         context = try? MTIContext(device: MTLCreateSystemDefaultDevice()!)
         
-        let url = Bundle.main.url(forResource: "FilterAssets", withExtension: "bundle")!
+        let bundle = Bundle(for: MTFilterManager.self)
+        let url = bundle.url(forResource: "FilterAssets", withExtension: "bundle")!
         resourceBundle = Bundle(url: url)!
     }
     
@@ -76,13 +77,21 @@ public class MTFilterManager {
         return resourceBundle.url(forResource: name, withExtension: nil)
     }
     
-    public func generateThumbnailsForImage(_ image: UIImage, with type: MTFilter.Type) -> UIImage? {
+    func generateThumbnailsForImage(_ image: UIImage, with type: MTFilter.Type) -> UIImage? {
         let inputImage = MTIImage(cgImage: image.cgImage!, options: [.SRGB: false], isOpaque: true)
         let filter = type.init()
         filter.inputImage = inputImage
         if let cgImage = try? context?.makeCGImage(from: filter.outputImage!) {
             return UIImage(cgImage: cgImage)
         }
+        
+//        let filter = MTISaturationFilter()
+//        filter.saturation = 0
+//        filter.inputImage = inputImage
+//
+//        if let cgImage = try? context?.makeCGImage(from: filter.outputImage!) {
+//            return UIImage(cgImage: cgImage)
+//        }
         return nil
     }
     
@@ -93,4 +102,10 @@ public class MTFilterManager {
         return nil
     }
     
+    func generateCIImage(image: MTIImage) -> CIImage? {
+        if let cgImage = try? context?.makeCIImage(from: image) {
+            return cgImage
+        }
+        return nil
+    }
 }

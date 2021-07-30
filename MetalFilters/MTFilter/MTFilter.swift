@@ -9,12 +9,12 @@
 import Foundation
 import MetalPetal
 
-public class MTFilter: NSObject, MTIUnaryFilter {
+class MTFilter: NSObject, MTIUnaryFilter {
     
-    required public override init() { }
+    required override init() { }
     
     // MARK: - Should overrided by subclasses
-    public class var name: String { return "" }
+    class var name: String { return "" }
     
     /// border image Name
     var borderName: String { return "" }
@@ -41,11 +41,11 @@ public class MTFilter: NSObject, MTIUnaryFilter {
 
     // MARK: - MTIUnaryFilter
     
-    public var inputImage: MTIImage?
+    var inputImage: MTIImage?
     
-    public var outputPixelFormat: MTLPixelFormat = .invalid
+    var outputPixelFormat: MTLPixelFormat = .invalid
     
-    public var outputImage: MTIImage? {
+    var outputImage: MTIImage? {
         guard let input = inputImage else {
             return inputImage
         }
@@ -74,7 +74,7 @@ public class MTFilter: NSObject, MTIUnaryFilter {
     
     var kernel: MTIRenderPipelineKernel {
         let vertexDescriptor = MTIFunctionDescriptor(name: MTIFilterPassthroughVertexFunctionName)
-        let fragmentDescriptor = MTIFunctionDescriptor(name: fragmentName, libraryURL: MTIDefaultLibraryURLForBundle(Bundle.main))
+        let fragmentDescriptor = MTIFunctionDescriptor(name: fragmentName, libraryURL: MTIDefaultLibraryURLForBundle(Bundle(for: MTFilter.self)))
         let kernel = MTIRenderPipelineKernel(vertexFunctionDescriptor: vertexDescriptor, fragmentFunctionDescriptor: fragmentDescriptor)
         return kernel
     }

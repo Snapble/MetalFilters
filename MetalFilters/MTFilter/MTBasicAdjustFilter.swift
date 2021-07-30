@@ -112,6 +112,25 @@ class MTBasicAdjustFilter: MTFilter {
             "tintShadowsColor":  tintShadowsColor.colorVector,
             "tintHighlightsColor":tintHighlightsColor.colorVector
         ]
-        
+    }
+    
+    func copy(with zone: NSZone? = nil) -> MTBasicAdjustFilter {
+        let copyObj = MTBasicAdjustFilter()
+        copyObj.brightness = brightness
+        copyObj.contrast = contrast
+        copyObj.saturation = saturation
+        copyObj.temperature = temperature
+        copyObj.vignette = vignette
+        copyObj.fade = fade
+        copyObj.highlights = highlights
+        copyObj.shadows = shadows
+        copyObj.sharpenDisabled = sharpenDisabled
+        copyObj.tintShadowsIntensity = tintShadowsIntensity
+        copyObj.tintHighlightsIntensity = tintHighlightsIntensity
+        copyObj.tintShadowsColor = tintShadowsColor
+        copyObj.tintHighlightsColor = tintHighlightsColor
+        copyObj.temperature = temperature
+        copyObj.inputImage = inputImage
+        return copyObj
     }
 }

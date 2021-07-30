@@ -6,7 +6,9 @@
 //
 
 #include <metal_stdlib>
-#include "MTIShaderLib.h"
+//#include "MTIShaderLib.h"
+//#include <Meta>
+#import "MTIShaderLib.h"
 #include "IFShaderLib.h"
 using namespace metalpetal;
 
