@@ -91,7 +91,7 @@ enum FilterEditType {
     }
 }
 
-enum FilterToolType {
+public enum FilterToolType {
     case adjustStrength
     case adjust
     case brightness
@@ -110,14 +110,14 @@ enum FilterToolType {
 }
 
 public struct FilterToolItem: Equatable {
-    
-    let type: FilterToolType
-    
-    let slider: SliderValueRange
-    
-    var customTilte = ""
-    
-    var title: String {
+
+    public let type: FilterToolType
+
+    public let slider: SliderValueRange
+
+    public var customTilte = ""
+
+    public var title: String {
         switch type {
         case .adjustStrength:
             return customTilte
@@ -149,8 +149,8 @@ public struct FilterToolItem: Equatable {
             return "Sharpen"
         }
     }
-    
-    var icon: String {
+
+    public var icon: String {
         switch type {
         case .adjustStrength:
             return ""

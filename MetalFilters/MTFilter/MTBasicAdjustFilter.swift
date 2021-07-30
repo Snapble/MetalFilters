@@ -29,14 +29,14 @@ public class MTBasicAdjustFilter: MTFilter {
     public override class var name: String {
         return "Basic Adjust"
     }
-    
-    override var borderName: String { return "" }
-    
-    override var fragmentName: String {
+
+    public override var borderName: String { return "" }
+
+    public override var fragmentName: String {
         return "MTBasicAdjustFilterFragment"
     }
-    
-    override var samplers: [String: String] {
+
+    public override var samplers: [String: String] {
         /*
          X: 0.0612549, Y: 0.185368
          X: 0.16381, Y: 0.365771
@@ -87,15 +87,15 @@ public class MTBasicAdjustFilter: MTFilter {
         curve.rgbCompositeControlPoints = knots
         return curve
     }
-    
-    override func modifySamplersIfNeeded(_ samplers: [MTIImage]) -> [MTIImage] {
+
+    public override func modifySamplersIfNeeded(_ samplers: [MTIImage]) -> [MTIImage] {
         
         // TODO
         
         return samplers
     }
- 
-    override var parameters: [String: Any] {
+
+    public override var parameters: [String: Any] {
         return [
             "brightness" : brightness,
             "contrast": contrast,

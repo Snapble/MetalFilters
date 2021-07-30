@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ToolPickerCell: UICollectionViewCell {
+public class ToolPickerCell: UICollectionViewCell {
 
     private let borderView: UIView
     
@@ -16,7 +16,7 @@ class ToolPickerCell: UICollectionViewCell {
     
     private let titleLabel: UILabel
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         
         titleLabel = UILabel()
         titleLabel.textColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
@@ -48,7 +48,7 @@ class ToolPickerCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
  
-    func update(_ tool: FilterToolItem, applied: Bool = false) {
+    public func update(_ tool: FilterToolItem, applied: Bool = false) {
         iconView.image = UIImage(named: tool.icon, in: Bundle(for: ToolPickerCell.self), compatibleWith: nil)
         titleLabel.text = tool.title
         borderView.layer.borderColor = applied ? UIColor(red: 55.0/255.0, green: 171.0/255.0, blue: 225.0/255.0, alpha: 1.0).cgColor : UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0).cgColor

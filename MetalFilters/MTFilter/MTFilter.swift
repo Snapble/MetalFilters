@@ -17,30 +17,30 @@ public class MTFilter: NSObject, MTIUnaryFilter {
     public class var name: String { return "" }
     
     /// border image Name
-    var borderName: String { return "" }
+    public var borderName: String { return "" }
 
     /// fragment shader name in Metal
-    var fragmentName: String { return "" }
+    public var fragmentName: String { return "" }
 
     /// Textures, key should match parameter name
-    var samplers: [String: String] { return [:] }
-    
-    var parameters: [String: Any] { return [:] }
+    public var samplers: [String: String] { return [:] }
+
+    public var parameters: [String: Any] { return [:] }
     
     /// Strength to adjust filter, ranges in [0.0, 1.0]
     /// if value is 0.0, means no filter effect
     /// if values is 1.0, means full filter effect
-    var strength: Float = 1.0
+    public var strength: Float = 1.0
     
     /// override this function to modifiy samplers if needed
     ///
     /// - Returns: final samplers passes into Metal
-    func modifySamplersIfNeeded(_ samplers: [MTIImage]) -> [MTIImage] {
+    public func modifySamplersIfNeeded(_ samplers: [MTIImage]) -> [MTIImage] {
         return samplers
     }
 
     // MARK: - MTIUnaryFilter
-    
+
     public var inputImage: MTIImage?
     
     public var outputPixelFormat: MTLPixelFormat = .invalid
@@ -71,15 +71,15 @@ public class MTFilter: NSObject, MTIUnaryFilter {
         }
         return kernel.apply(toInputImages: images, parameters: params, outputDescriptors: outputDescriptors).first
     }
-    
-    var kernel: MTIRenderPipelineKernel {
+
+    public var kernel: MTIRenderPipelineKernel {
         let vertexDescriptor = MTIFunctionDescriptor(name: MTIFilterPassthroughVertexFunctionName)
         let fragmentDescriptor = MTIFunctionDescriptor(name: fragmentName, libraryURL: MTIDefaultLibraryURLForBundle(Bundle(for: MTFilter.self)))
         let kernel = MTIRenderPipelineKernel(vertexFunctionDescriptor: vertexDescriptor, fragmentFunctionDescriptor: fragmentDescriptor)
         return kernel
     }
-    
-    func samplerImage(named name: String) -> MTIImage? {
+
+    public func samplerImage(named name: String) -> MTIImage? {
         if let imageUrl = MTFilterManager.shared.url(forResource: name) {
             if name.hasSuffix(".pvr") {
                 let loader = MTKTextureLoader(device: MTFilterManager.shared.device)
@@ -98,8 +98,8 @@ public class MTFilter: NSObject, MTIUnaryFilter {
         }
         return nil
     }
-    
-    var borderImage: MTIImage? {
+
+    public var borderImage: MTIImage? {
         return samplerImage(named: borderName)
     }
 }

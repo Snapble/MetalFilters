@@ -10,19 +10,19 @@ import MetalPetal
 
 public class MT1977Filter: MTFilter {
 
-   public override class var name: String {
+    public override class var name: String {
         return "1977"
     }
 
-   override var borderName: String {
+    public override var borderName: String {
         return "filterBorderPlainWhite.png"
     }
 
-   override var fragmentName: String {
+    public override var fragmentName: String {
         return "MT1977Fragment"
     }
 
-   override var samplers: [String : String] {
+    public override var samplers: [String : String] {
         return [
             "map": "1977map.png",
             "screen": "screen30.png",

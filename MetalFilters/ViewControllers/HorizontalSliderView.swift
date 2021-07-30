@@ -14,7 +14,8 @@ import UIKit
 /// - negHundredToHundred: value in [-100, 100], defaluts to 0
 /// - tiltShift: tiltShift
 /// - adjustStraighten: adjustStraighten, specially handled
-enum SliderValueRange {
+
+public enum SliderValueRange {
     case zeroToHundred
     case negHundredToHundred
     case tiltShift
