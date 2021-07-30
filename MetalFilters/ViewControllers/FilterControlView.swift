@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FilterControlViewDelegate {
+public protocol FilterControlViewDelegate {
     func filterControlViewDidPressCancel(filterTool: FilterToolItem)
     func filterControlViewDidPressDone(filterTool: FilterToolItem)
     func filterControlViewDidStartDragging()
@@ -19,9 +19,9 @@ protocol FilterControlViewDelegate {
 
 public class FilterControlView: UIView {
 
-    var delegate: FilterControlViewDelegate?
+    public var delegate: FilterControlViewDelegate?
     
-    var value: Float = 0
+    public var value: Float = 0
     
     private let cancelButton: UIButton
     private let doneButton: UIButton
