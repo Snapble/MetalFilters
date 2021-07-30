@@ -19,10 +19,10 @@ public class MTFilterManager {
     private var resourceBundle: Bundle
     
     private var context: MTIContext?
-    
-    var device = MTLCreateSystemDefaultDevice()!
-    
-    init() {
+
+    public var device = MTLCreateSystemDefaultDevice()!
+
+    public init() {
         
         allFilters.append(MTNormalFilter.self)
         allFilters.append(MTClarendonVideoFilter.self)
@@ -72,12 +72,12 @@ public class MTFilterManager {
         let url = bundle.url(forResource: "FilterAssets", withExtension: "bundle")!
         resourceBundle = Bundle(url: url)!
     }
-    
-    func url(forResource name: String) -> URL? {
+
+    public func url(forResource name: String) -> URL? {
         return resourceBundle.url(forResource: name, withExtension: nil)
     }
     
-    func generateThumbnailsForImage(_ image: UIImage, with type: MTFilter.Type) -> UIImage? {
+    public func generateThumbnailsForImage(_ image: UIImage, with type: MTFilter.Type) -> UIImage? {
         let inputImage = MTIImage(cgImage: image.cgImage!, options: [.SRGB: false], isOpaque: true)
         let filter = type.init()
         filter.inputImage = inputImage

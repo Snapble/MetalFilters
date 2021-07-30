@@ -114,7 +114,7 @@ public class MTBasicAdjustFilter: MTFilter {
         ]
     }
     
-    func copy(with zone: NSZone? = nil) -> MTBasicAdjustFilter {
+    public func copy(with zone: NSZone? = nil) -> MTBasicAdjustFilter {
         let copyObj = MTBasicAdjustFilter()
         copyObj.brightness = brightness
         copyObj.contrast = contrast

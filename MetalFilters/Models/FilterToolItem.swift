@@ -115,12 +115,18 @@ public struct FilterToolItem: Equatable {
 
     public let slider: SliderValueRange
 
-    public var customTilte = ""
+    public var customTitle = ""
+
+    public init(type: FilterToolType, slider: SliderValueRange, customTitle: String = "") {
+        self.type = type
+        self.slider = slider
+        self.customTitle = customTitle
+    }
 
     public var title: String {
         switch type {
         case .adjustStrength:
-            return customTilte
+            return customTitle
         case .adjust:
             return "Adjust"
         case .brightness:
