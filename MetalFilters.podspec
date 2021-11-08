@@ -80,7 +80,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "git@github.com:Snapble/MetalFilters.git", :tag => s.version }
+  spec.source       = { :git => "git@github.com:Snapble/MetalFilters.git", :tag => spec.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -134,6 +134,6 @@ Pod::Spec.new do |spec|
   # spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  spec.dependency "MetalPetal", "~> 1.22.0"
+  spec.dependency "MetalPetal", "~> 1.23.0"
 
 end
