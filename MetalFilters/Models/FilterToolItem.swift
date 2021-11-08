@@ -113,13 +113,10 @@ public struct FilterToolItem: Equatable {
 
     public let type: FilterToolType
 
-    public let slider: SliderValueRange
-
     public var customTitle = ""
 
-    public init(type: FilterToolType, slider: SliderValueRange, customTitle: String = "") {
+    public init(type: FilterToolType, customTitle: String = "") {
         self.type = type
-        self.slider = slider
         self.customTitle = customTitle
     }
 
