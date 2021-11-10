@@ -82,7 +82,7 @@ public class MTFilter: NSObject, MTIUnaryFilter {
     public func samplerImage(named name: String) -> MTIImage? {
         if let imageUrl = MTFilterManager.shared.url(forResource: name) {
             if name.hasSuffix(".pvr") {
-                let loader = MTKTextureLoader(device: MTFilterManager.shared.device)
+                let loader = MTKTextureLoader(device: MTFilterManager.sharedContext!.device)
                 do {
                     let texture = try loader.newTexture(URL: imageUrl, options: [
                         MTKTextureLoader.Option.SRGB: false
