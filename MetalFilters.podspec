@@ -3,12 +3,12 @@ Pod::Spec.new do |spec|
   spec.version      = "1.0.0"
   spec.summary      = "Instagram filters implemented in Metal "
   spec.description  = "Just a filter"
-  spec.homepage     = "https://github.com/alexiscn/MetalFilters"
+  spec.homepage     = "https://github.com/jackyoustra/MetalFilters"
   spec.license      = "MIT"
-  spec.author             = { "alexiscn" => "alexiscn@email.com" }
+  spec.author       = { "alexiscn" => "alexiscn@email.com" }
   spec.platform     = :ios
   spec.ios.deployment_target = "11.1"
-  spec.source       = { :git => "git@github.com:Snapble/MetalFilters.git", :tag => spec.version }
+  spec.source       = { :git => "git@github.com:jackyoustra/MetalFilters.git", :tag => spec.version }
   spec.swift_versions = '5.0'
   spec.source_files  = "MetalFilters/**/*.{swift,metal,h}"
   spec.exclude_files = "MetalFilters/ViewControllers"
