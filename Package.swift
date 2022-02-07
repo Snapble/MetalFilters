@@ -32,6 +32,7 @@ let package = Package(
             path: "MetalFilters",
             exclude: [
                 "Info.plist",
+                "AppDelegate.swift",
             ],
             resources: [
                 .process("Supports/FilterAssets.bundle")
