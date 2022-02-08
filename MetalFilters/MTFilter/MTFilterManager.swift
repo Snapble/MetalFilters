@@ -67,8 +67,7 @@ public class MTFilterManager {
     public init() {
         self.context = MTFilterManager.sharedContext!
         
-        let bundle = Bundle(for: MTFilterManager.self)
-        let url = bundle.url(forResource: "FilterAssets", withExtension: "bundle")!
+        let url = Bundle.module.url(forResource: "FilterAssets", withExtension: "bundle")!
         resourceBundle = Bundle(url: url)!
     }
 
