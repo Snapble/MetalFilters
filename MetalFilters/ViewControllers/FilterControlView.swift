@@ -67,7 +67,7 @@ public class FilterControlView: UIView {
         
         super.init(frame: frame)
         
-        sliderView.valueRange = filterTool.slider
+//        sliderView.valueRange = filterTool.slider
         sliderView.slider.value = value
         if filterTool.type == .adjustStrength {
             addSubview(borderButton)
